@@ -338,6 +338,7 @@ void RGBmatrixPanel::drawPixel(int16_t x, int16_t y, uint16_t c) {
   }
 }
 
+#ifdef GFX_FILL_SUPPORT
 void RGBmatrixPanel::fillScreen(uint16_t c) {
   if((c == 0x0000) || (c == 0xffff)) {
     // For black or white, all bits in frame buffer will be identically
@@ -349,6 +350,7 @@ void RGBmatrixPanel::fillScreen(uint16_t c) {
     Adafruit_GFX::fillScreen(c);
   }
 }
+#endif
 
 // Return address of back buffer -- can then load/store data directly
 uint8_t *RGBmatrixPanel::backBuffer() {
