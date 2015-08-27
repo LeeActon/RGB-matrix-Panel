@@ -18,15 +18,15 @@ class RGBmatrixPanel : public Adafruit_GFX {
   RGBmatrixPanel(uint8_t a, uint8_t b, uint8_t c, uint8_t d,
     uint8_t sclk, uint8_t latch, uint8_t oe, boolean dbuf);
 
-  void
-    begin(void),
-    drawPixel(int16_t x, int16_t y, uint16_t c),
-    fillScreen(uint16_t c),
-    updateDisplay(void),
-    swapBuffers(boolean),
-    dumpMatrix(void);
-  uint8_t
-    *backBuffer(void);
+  void begin(void);
+  void drawPixel(int16_t x, int16_t y, uint16_t c);
+#ifdef GFX_FILL_SUPPORT
+  void fillScreen(uint16_t c);
+#endif
+  void updateDisplay(void);
+  void swapBuffers(boolean);
+  void dumpMatrix(void);
+  uint8_t *backBuffer(void);
   uint16_t
     Color333(uint8_t r, uint8_t g, uint8_t b),
     Color444(uint8_t r, uint8_t g, uint8_t b),
